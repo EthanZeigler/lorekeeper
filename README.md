@@ -72,6 +72,35 @@ $ php artisan setup-admin-user
 
 You will need to send yourself the verification email and then link your social media account as prompted.
 
+## Docker Installation
+To run this with docker containers for the web-server, mysql and phpmyadmin, follow these steps
+
+First, clone and push the git to your webserver like you would normally, as well as install composer and php7.4.
+
+Next, add the following to your .env, modifying as needed:
+
+```
+DB_LOCATION="path/to/save/db"
+LOREKEEPER_DIRECTORY="path/to/lorekeeper/directory"
+LOREKEEPER_APACHE_CONFIG_DIRECTORY="path/to/save/config"
+PHPMYADMIN_PORT=3922
+FRONTEND_PORT=9934
+```
+
+Next, make a file called LK_docker.env and add the following to it:
+```
+DB_HOST=lorekeeper_db
+```
+
+Run `docker run -it --rm -v $(pwd):/app composer install` to set up vendor data
+
+Run `$ docker-compose up` and make sure it launches w/o issues. If so, hit ctrl+c and then run `$ docker-compose up -d`
+
+Finally, continue with running the artisan commands like normal!
+
+
+
+
 ## Contact
 
 If you have any questions, please feel free to ask in the Discord server: https://discord.gg/U4JZfsu
