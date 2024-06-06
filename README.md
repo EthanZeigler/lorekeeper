@@ -92,7 +92,7 @@ Run `$ bash docker/project_init.sh` to set up the project. This does the steps d
 
 Run `$ docker compose up` and make sure it launches w/o issues. If so, hit ctrl+c and then run `$ docker compose up -d`
 
-To run artisan commands, use <IF THIS IS STILL HERE LATER THIS WEEK YELL AT THEM>
+To run artisan commands, use ***IF THIS IS STILL HERE LATER THIS WEEK YELL AT THEM***
 
 ### Normal startup
 
