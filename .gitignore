@@ -12,6 +12,5 @@ yarn-error.log
 /composer.lock
 *.env
 /composer.phar
-/.docker
 
 !*/**/.keep

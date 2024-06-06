@@ -1,17 +1,30 @@
+# volumes:
+#   web_data:
+#   mysql_data:
+#     driver: local # Define the driver and options under the volume name
+#     driver_opts:
+#       type: none
+#       device: ${DOCKER_DATA_LOCATION}/mysql_data
+#       o: bind
+#   lorekeeper_mnt:
+#     driver: local
+#     driver_opts:
+#       type: none
+#       device: ./
+#       o: bind
+
 volumes:
-  web_data:
   mysql_data:
-    driver: local # Define the driver and options under the volume name
-    driver_opts:
-      type: none
-      device: ${DOCKER_DATA_LOCATION}/mysql_data
-      o: bind
   lorekeeper_mnt:
     driver: local
     driver_opts:
       type: none
       device: ./
       o: bind
+
+networks:
+  default:
+    name: lorekeeper_network
 
 services:
   lorekeeper_db:
