@@ -45,7 +45,7 @@ CONTACT_ADDRESS=(contact email address)
 DEVIANTART_ACCOUNT=(username of ARPG group account)
 ```
 
-## Setting up
+## Setting up (non-docker)
 
 Composer install:
 ```
@@ -72,34 +72,31 @@ $ php artisan setup-admin-user
 
 You will need to send yourself the verification email and then link your social media account as prompted.
 
-## Docker Installation
-To run this with docker containers for the web-server, mysql and phpmyadmin, follow these steps
+## Docker Development Installation
+To run this with docker containers for the web-server, mysql, phpmyadmin, dev mailserver, and dev s3, follow these steps
 
-First, clone and push the git to your webserver like you would normally, as well as install composer and php7.4.
+First, clone as usual to your local machine, not the webserver.
 
-Next, add the following to your .env, modifying as needed:
+### Configure Docker-specfic .env
 
+First, create the .env file for docker-specific things
 ```
-DB_LOCATION="path/to/save/db"
-LOREKEEPER_DIRECTORY="path/to/lorekeeper/directory"
-LOREKEEPER_APACHE_CONFIG_DIRECTORY="path/to/save/config"
-PHPMYADMIN_PORT=3922
-FRONTEND_PORT=9934
+$ cp docker/LK_docker.env.example docker/LK_docker.env
 ```
 
-Next, make a file called LK_docker.env and add the following to it:
-```
-DB_HOST=lorekeeper_db
-```
+Modify the LK_docker.env file as needed. This file works as is from the example so this is likely unnecessary.
 
-Run `docker run -it --rm -v $(pwd):/app composer install` to set up vendor data
+### One-time setup
 
-Run `$ docker-compose up` and make sure it launches w/o issues. If so, hit ctrl+c and then run `$ docker-compose up -d`
+Run `$ bash docker/project_init` to set up the project. This does the steps described earlier in `setting up` automatically.
 
-Finally, continue with running the artisan commands like normal!
+Run `$ docker compose up` and make sure it launches w/o issues. If so, hit ctrl+c and then run `$ docker compose up -d`
 
+To run artisan commands, use <IF THIS IS STILL HERE LATER THIS WEEK YELL AT THEM>
 
+### Normal startup
 
+Run `$ docker compose up -d` to start the server. To stop, run `$ docker compose down`.
 
 ## Contact
 

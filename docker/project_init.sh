@@ -5,9 +5,6 @@ if [ ! -f ./.env ]; then
     exit
 fi
 
-# # Create docker storage locations
-# mkdir -p ${DOCKER_DATA_LOCATION}/mysql_data
-
 
 # anticipating that the cwd will be the root of the project, else it's not
 # going to work right, but can't say i didnt warn them lol
