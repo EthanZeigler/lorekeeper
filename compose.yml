@@ -4,7 +4,7 @@ volumes:
     driver: local # Define the driver and options under the volume name
     driver_opts:
       type: none
-      device: ./.docker/mysql_data
+      device: ${DOCKER_DATA_LOCATION}/mysql_data
       o: bind
   lorekeeper_mnt:
     driver: local
@@ -31,7 +31,7 @@ services:
   lorekeeper_phpmyadmin:
     env_file:
     - .env
-    -  LK_docker.env
+    -  docker/LK_docker.env
     image: phpmyadmin:latest
     environment:
       PMA_HOST: lorekeeper_db
@@ -46,13 +46,8 @@ services:
   lorekeeper_front:
     env_file:
       - .env
-      -  LK_docker.env
-    build: .
-    develop:
-      watch:
-        - action: sync
-          path: ./
-          target: /var/www
+      -  docker/LK_docker.env
+    build: ./docker/Dockerfile
     links:
       - lorekeeper_db
     depends_on:
