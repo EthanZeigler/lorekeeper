@@ -88,7 +88,7 @@ Modify the LK_docker.env file as needed. This file works as is from the example 
 
 ### One-time setup
 
-Run `$ bash docker/project_init` to set up the project. This does the steps described earlier in `setting up` automatically.
+Run `$ bash docker/project_init.sh` to set up the project. This does the steps described earlier in `setting up` automatically.
 
 Run `$ docker compose up` and make sure it launches w/o issues. If so, hit ctrl+c and then run `$ docker compose up -d`
 
