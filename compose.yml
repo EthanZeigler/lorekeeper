@@ -44,7 +44,8 @@ services:
     env_file:
       - .env
       -  docker/LK_docker.env
-    build: ./docker/Dockerfile
+    build:
+      dockerfile: docker/Dockerfile
     depends_on:
       - lorekeeper_db
       - maildev

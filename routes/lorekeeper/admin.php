@@ -70,7 +70,6 @@ Route::group(['prefix' => 'images', 'middleware' => 'power:edit_site_settings'],
 
     Route::post('upload/css', 'FileController@postUploadCss');
     Route::post('upload', 'FileController@postUploadImage');
-    Route::post('reset', 'FileController@postResetFile');
 });
 
 # DATA
@@ -84,7 +83,6 @@ Route::group(['prefix' => 'data', 'namespace' => 'Data', 'middleware' => 'power:
     Route::post('galleries/create', 'GalleryController@postCreateEditGallery');
     Route::post('galleries/edit/{id?}', 'GalleryController@postCreateEditGallery');
     Route::post('galleries/delete/{id}', 'GalleryController@postDeleteGallery');
-    Route::post('galleries/sort', 'GalleryController@postSortGallery');
 
     # CURRENCIES
     Route::get('currencies', 'CurrencyController@getIndex');
@@ -294,12 +292,10 @@ Route::group(['prefix' => 'masterlist', 'namespace' => 'Characters', 'middleware
     Route::get('get-number', 'CharacterController@getPullNumber');
 
     Route::get('transfers/{type}', 'CharacterController@getTransferQueue');
-    Route::get('transfer/{id}', 'CharacterController@getTransferInfo');
     Route::get('transfer/act/{id}/{type}', 'CharacterController@getTransferModal');
     Route::post('transfer/{id}', 'CharacterController@postTransferQueue');
 
     Route::get('trades/{type}', 'CharacterController@getTradeQueue');
-    Route::get('trade/{id}', 'CharacterController@getTradeInfo');
     Route::get('trade/act/{id}/{type}', 'CharacterController@getTradeModal');
     Route::post('trade/{id}', 'CharacterController@postTradeQueue');
 
@@ -349,9 +345,6 @@ Route::group(['prefix' => 'character', 'namespace' => 'Characters', 'middleware'
     Route::get('{slug}/description', 'CharacterController@getEditCharacterDescription');
     Route::post('{slug}/description', 'CharacterController@postEditCharacterDescription');
 
-    Route::get('{slug}/profile', 'CharacterController@getEditCharacterProfile');
-    Route::post('{slug}/profile', 'CharacterController@postEditCharacterProfile');
-
     Route::get('{slug}/delete', 'CharacterController@getCharacterDelete');
     Route::post('{slug}/delete', 'CharacterController@postCharacterDelete');
 
@@ -367,9 +360,6 @@ Route::group(['prefix' => 'myo', 'namespace' => 'Characters', 'middleware' => 'p
 
     Route::get('{id}/description', 'CharacterController@getEditMyoDescription');
     Route::post('{id}/description', 'CharacterController@postEditMyoDescription');
-
-    Route::get('{id}/profile', 'CharacterController@getEditMyoProfile');
-    Route::post('{id}/profile', 'CharacterController@postEditMyoProfile');
 
     Route::get('{id}/delete', 'CharacterController@getMyoDelete');
     Route::post('{id}/delete', 'CharacterController@postMyoDelete');

@@ -2,7 +2,7 @@
 ## RUNTIME ##
 FROM php:8.3-apache as runtime
 
-RUN apt update && apt install libzip-dev libpng-dev -y
+RUN apt update && apt install git 7zip libzip-dev libpng-dev -y
 RUN docker-php-ext-install mysqli gd pdo_mysql
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer

@@ -2,7 +2,6 @@
 
 # Move to mounted directory
 cd /var/www/
-apt update && apt install git 7zip -y
 
 # Install and run composer to install vendor packages
 # https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md
